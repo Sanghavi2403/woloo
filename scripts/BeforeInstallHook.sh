@@ -11,16 +11,16 @@ sudo npm update -y
 echo "Updating PM2..."
 sudo pm2 update
 
-# Copy ecosystem.config.js from S3 to the project directory
-echo "Copying ecosystem.config.js from S3 bucket..."
+# Copy config.js from S3 to the project directory
+echo "Copying config.js from S3 bucket..."
 S3_PATH="s3://codepipeline-us-east-1-307410231750/Woloo-project/config.js"
 DEST_PATH="/home/ubuntu/woloo/config.js"
 
 # Check if S3 path and destination exist
 if sudo aws s3 cp $S3_PATH $DEST_PATH; then
-  echo "Successfully copied ecosystem.config.js from S3."
+  echo "Successfully copied config.js from S3."
 else
-  echo "Failed to copy ecosystem.config.js from S3." >&2
+  echo "Failed to copy config.js from S3." >&2
   exit 1
 fi
 
