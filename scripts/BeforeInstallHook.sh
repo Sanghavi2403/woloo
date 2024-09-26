@@ -16,7 +16,7 @@ echo "Copying config.js from S3 bucket..."
 S3_PATH="s3://codepipeline-us-east-1-307410231750/Woloo-project/config.js"
 DEST_PATH="/home/ubuntu/woloo/config.js"
 
-# Check if S3 path and destination exist
+# Check if S3 path and destination exist...
 if sudo aws s3 cp $S3_PATH $DEST_PATH; then
   echo "Successfully copied config.js from S3."
 else
